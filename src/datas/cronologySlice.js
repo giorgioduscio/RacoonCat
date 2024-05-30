@@ -4,23 +4,29 @@ export const cronologySlice= createSlice(
     {
         name: "cronology",
         initialState: {
-            value:[{}]
+            value:[
+                {
+                    date:"23/45/12", 
+                    cart:[
+                        {amount:10, name:"barbabietola", price:1},
+                        {amount:10, name:"banana", price:1},
+                    ]
+                },
+                {
+                    date:"30/05/14", 
+                    cart:[
+                        {amount:10, name:"banana", price:1},
+                        {amount:10, name:"lampone", price:1},
+                        {amount:10, name:"limone", price:1},
+                    ]
+                },
+            ]
         },
+
         reducers: {
-            add: (state, newValue)=>{
-                console.log('action', newValue);
-                state.value.push(newValue.payload) 
-            },
-            remove: (state, id)=>{
-                // SALVA SOLO I DATI DA NON CANCELLARE
-                let result=[]
-                state.value.map(el=> {
-                    if (el.id != id.payload){ 
-                        result.push( el )
-                    }
-                })
-                // SOVRASCRIVI
-                state.value=result
+            add: (state, newData)=>{
+                console.log('out', newData);
+                state.value.push(newData.payload) 
             },
         }
     }

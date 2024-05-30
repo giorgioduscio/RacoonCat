@@ -26,6 +26,9 @@ export const cartSlice= createSlice(
                 // SOVRASCRIVI
                 state.value=result
             },
+            reset: (state)=>{
+                state.value=[]
+            }
         }
     }
 )
