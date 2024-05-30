@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { add } from "../datas/cartSlice"
 
 export default function OrdinationsProducts({URLimage, category, description, name, price}) {
 
@@ -22,9 +24,10 @@ export default function OrdinationsProducts({URLimage, category, description, na
   }
 
   // MANDA L'ORDINAZIONE AL CARRELLO
+  const dispatch= useDispatch()
   function toCart() {
     if (counter>0) {
-      console.log(`Manda ${counter} porzioni di ${name} (${price}€ l'una)`);
+      dispatch(add({ amount: counter, name: name, price: price }))
       setCounter(0)
     }
   }
