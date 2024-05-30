@@ -1,11 +1,49 @@
+import { useState } from "react"
+
 export default function OrdinationsProducts({URLimage, category, description, name, price}) {
-  return (<div className="OrdinationsProducts">
-    <img src={URLimage} alt={name} width={"200px"}/>
-    <div>
-        <h3>{name}</h3>
+
+  let background={ 
+    backgroundImage: `url(${URLimage})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  }
+  
+  // CONTEGGIO DELLE QUANTITA
+  const [counter, setCounter]= useState(0)
+  function handleClick(e) {
+    if (e.target.innerText=="+") {
+      setCounter(counter+ 1)
+    } else {
+      if (counter!=0){
+        setCounter(counter- 1)
+      }
+    }
+  }
+
+  // MANDA L'ORDINAZIONE AL CARRELLO
+  function toCart() {
+    if (counter>0) {
+      console.log(`Manda ${counter} porzioni di ${name} (${price}€ l'una)`);
+      setCounter(0)
+    }
+  }
+
+  return (<div className="OrdinationsProducts" style={background}>
+    {/* <img src={URLimage} alt={name} width={"200px"}/> */}
+    <div className="info">
+        <h3>{name} {price}€</h3>
         <p>{category}</p>
         <p>{description}</p>
-        <p>{price}</p>
+        <p></p>
+    </div>
+    <div className="amount">
+      <button>{counter}</button>
+      <button onClick={handleClick}>+</button>
+      <button onClick={handleClick}>-</button>
+      <button onClick={toCart}>
+        <img src="https://cdn.icon-icons.com/icons2/2645/PNG/512/cart_icon_160296.png" alt="" />
+      </button>
     </div>
   </div>)
 }

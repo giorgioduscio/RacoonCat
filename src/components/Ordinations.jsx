@@ -1,3 +1,4 @@
+import "./Ordinations.css"
 import Navbar from "./Navbar"
 import { useSelector } from "react-redux";
 import OrdinationsProducts from "./OrdinationsProducts";
@@ -18,7 +19,8 @@ export default function Ordinations() {
       }
     })
 
-  return (<div className="productsPage">
+  // FIX
+  return (<div className="Ordinations">
 
     <header>
       <h1>Sommario</h1>
@@ -31,18 +33,22 @@ export default function Ordinations() {
     </header>
 
     <section>
-      <h1>Ordinazioni</h1>
-      {products.map(el=>{
-        return <OrdinationsProducts
-          key={el.name}
+      <div className="OrdinationsShow"> {products.map((el, i, products)=>{
 
-          URLimage={el.URLimage}
-          category={el.category}
-          description={el.description}
-          name={el.name}
-          price={el.price}
-        />
-      })}        
+        return <>
+          <h2>
+            {i===0 || products[i].category!= products[i-1].category? `${el.category}`:''}
+          </h2> 
+          <OrdinationsProducts
+            URLimage={el.URLimage}
+            category={el.category}
+            description={el.description}
+            name={el.name}
+            price={el.price}
+          />
+        </>
+
+      })}  </div>
     </section>
     <Navbar/>
   </div>)
