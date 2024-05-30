@@ -19,7 +19,7 @@ export const router= createBrowserRouter([
   {
     name: "home",
     icon: "https://cdn.icon-icons.com/icons2/1660/PNG/512/3844470-home-house_110332.png",
-    path: `/home`,
+    path: `/`,
     element:<Home/>
   },
   {
