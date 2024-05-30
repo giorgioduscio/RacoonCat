@@ -46,6 +46,9 @@ section{
 
 
 
+a{
+  text-decoration: none;
+}
 button{
   padding: 10px;
   
@@ -58,11 +61,15 @@ button{
   border-radius: 10px;
   background: var(--c3);
 }
-a{
-  text-decoration: none;
-}
   button img, a img{
     height: 25px;
   }
 
 h1{ padding-top: 50px; font-size: 6vh; }
+
+table, tbody, tr{
+  display: block;
+  text-align: left;
+}
+tr:last-child{background: var(--c3);}
+td:first-child{width: 100%;}

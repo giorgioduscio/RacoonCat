@@ -1,3 +1,5 @@
+import "./Cart.css"
+
 import { remove } from "../datas/cartSlice";
 import { add } from "../datas/cronologySlice";
 import CronologyCard from "./CronologyCard";
@@ -21,22 +23,25 @@ export default function Cart() {
   }
 
 
-
+  let total=0
   return (<div className="cartPage">
     <header>
       <div className="CartCard">
         <h1>Carrello</h1>
-        <table>
-          <tbody className="Cart">
+        <table><tbody>
             {cart.map((el, i)=>{
+              total+= el.price* el.amount
               return <tr key={i}>
-                  <td><button onClick={()=> deleteOrdination(i)}>❌</button></td>
-                  <td>{el.amount} {el.name}</td>
+                  <td>{el.name}, {el.amount} porzioni</td>
                   <td>{el.price* el.amount}€</td>
+                  <td><button onClick={()=> deleteOrdination(i)}>❌</button></td>
                 </tr>
             })}
-          </tbody>
-        </table>
+            <tr>
+              <td>Totale</td>
+              <td>{total}€</td>
+            </tr>
+        </tbody></table>
         <button onClick={toCronology}>Ordina</button>
       </div>
     </header>
