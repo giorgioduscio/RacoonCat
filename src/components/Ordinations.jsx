@@ -1,15 +1,49 @@
-import React from "react"
 import Navbar from "./Navbar"
+import { useSelector } from "react-redux";
+import OrdinationsProducts from "./OrdinationsProducts";
 
 export default function Ordinations() {
-  return (<div className="ordinationsPage">
-    <Navbar/>
+    document.title=`Ordinazioni`;
+    const products= useSelector(state=> state.products.value)
+    console.log("products", products);
+
+    // ARRAY DI CATEGORIE PER COSTRURE L"INDICE
+    const categories=[]
+    products.map((el, i, products)=>{
+      if (
+        i==0 || 
+        products[i].category!= products[i-1].category
+      ) {
+        categories.push({ name: el.category, URLimage: el.URLimage})
+      }
+    })
+
+  return (<div className="productsPage">
 
     <header>
       <h1>Sommario</h1>
-      <div className="">
-
+      <div className="OrdinationsIndex">{categories.map(el=>{
+        return <div key={el.name}>
+          <img src={el.URLimage} alt={el.name} height={"100px"}/>
+          <p>{ el.name }</p>
+        </div>  })}
       </div>
     </header>
+
+    <section>
+      <h1>Ordinazioni</h1>
+      {products.map(el=>{
+        return <OrdinationsProducts
+          key={el.name}
+
+          URLimage={el.URLimage}
+          category={el.category}
+          description={el.description}
+          name={el.name}
+          price={el.price}
+        />
+      })}        
+    </section>
+    <Navbar/>
   </div>)
 }
