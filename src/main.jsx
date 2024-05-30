@@ -17,15 +17,18 @@ import Cart from './components/Cart'
 
 export const router= createBrowserRouter([
   {
-    path:"/home",
+    name: "home",
+    path: `/home`,
     element:<Home/>
   },
   {
-    path:"/ordinations",
+    name: "ordinations",
+    path: "/ordinations",
     element:<Ordinations/>
   },
   {
-    path:"/cart",
+    name: "cart",
+    path: "/cart",
     element:<Cart/>
   },
 ])

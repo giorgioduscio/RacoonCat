@@ -7,8 +7,8 @@ export default function Navbar() {
 
   return (<nav>
     {router.routes.map(el=>{
-      return <Link key={el.id} to={`${el.path}`}> 
-        <button>{el.path}</button> 
+      return <Link key={el.id} to={el.path}> 
+        <button>{ (el.name).toUpperCase() }</button> 
       </Link>
     })}
   </nav>)
