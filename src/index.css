@@ -32,6 +32,9 @@ nav{
 
   background: var(--c2);
 }
+nav>a>img{
+  height: 30px;
+}
 
 header{
   padding:50px 0;
