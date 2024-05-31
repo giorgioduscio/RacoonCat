@@ -5,6 +5,7 @@ import { add } from "../datas/cronologySlice";
 import CronologyCard from "./CronologyCard";
 import Navbar from "./Navbar"
 import { useDispatch, useSelector } from "react-redux"
+import Tables from "./Tables";
 
 export default function Cart() {
 
@@ -25,6 +26,8 @@ export default function Cart() {
 
   let total=0
   return (<div className="cartPage">
+    <Tables/>
+
     <header>
       <div className="CartCard">
         <h1>Carrello</h1>

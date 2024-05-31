@@ -2,6 +2,7 @@ import "./Ordinations.css"
 import Navbar from "./Navbar"
 import { useSelector } from "react-redux";
 import OrdinationsProducts from "./OrdinationsProducts";
+import Tables from "./Tables";
 
 export default function Ordinations() {
     document.title=`Ordinazioni`;
@@ -21,6 +22,7 @@ export default function Ordinations() {
 
   // FIX
   return (<div className="Ordinations">
+    <Tables/>
 
     <header>
       <h1>Sommario</h1>

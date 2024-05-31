@@ -3,11 +3,11 @@ html, body, #root{
   margin: 0;
   padding: 0;
 
-  --c1:#111;
-  --c2:#444;
-  --c3:#888;
-  --c4:#ccc;
-  --c5:#fff;
+  --c1:#2f2824;
+  --c2:#605040;
+  --c3:#9d816c;
+  --c4:#c9bc94;
+  --c5:#d1cdb3;
   --st:#50505050;
 
   background: linear-gradient(30deg, var(--c1), var(--c3));
@@ -16,6 +16,7 @@ html, body, #root{
   padding: 0;
   margin: 0;
 
+  font-size: 2.5vh;
   transition: 0.3s;
   color: var(--c5);
 }
@@ -65,7 +66,12 @@ button{
     height: 25px;
   }
 
-h1{ padding-top: 50px; font-size: 6vh; }
+h1{ font-size: 6vh; }
+h2{ font-size: 5vh; }
+h3{ font-size: 4vh; }
+h4{ font-size: 3vh; }
+h5{ font-size: 2vh; }
+h6{ font-size: 1vh; }
 
 table, tbody, tr{
   display: block;
