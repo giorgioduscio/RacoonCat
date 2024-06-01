@@ -10,54 +10,66 @@ import Tables from "./Tables";
 export default function Cart() {
 
   // CANCELLA ELEMENTI DEL CARRELLO
-  const cart= useSelector(state=> state.cart.value)
-  const dispatch= useDispatch()
+  const cart =useSelector(state=> state.cart.value)
+  const tableSelected =useSelector(state=> state.tables.value.selected)
+  const dispatch =useDispatch()
   function deleteOrdination(i) {
     dispatch(remove(i))
   }
   
   // AGGIUNGE IL CARRELLO ALLA CRONOLOGIA
-  const cronology= useSelector(state=> state.cronology.value)
+  const cronology =useSelector(state=> state.cronology.value)
   function toCronology() {
-    let newDate= "--/--/--";
-    dispatch(add({ date: newDate, cart:[...cart]}))
+
+    if (tableSelected!="") {
+      // fix se i tavolo è stato selezionato
+      let newDate ="--/--/--";
+      dispatch(add({ date: newDate, cart:[...cart]}))
+      
+    }
   }
 
 
   let total=0
-  return (<div className="cartPage">
+  return (<div className="Cart">
     <Tables/>
 
     <header>
       <div className="CartCard">
-        <h1>Carrello</h1>
-        <table><tbody>
-            {cart.map((el, i)=>{
-              total+= el.price* el.amount
-              return <tr key={i}>
-                  <td>{el.name}, {el.amount} porzioni</td>
-                  <td>{el.price* el.amount}€</td>
-                  <td><button onClick={()=> deleteOrdination(i)}>❌</button></td>
-                </tr>
-            })}
-            <tr>
-              <td>Totale</td>
-              <td>{total}€</td>
-            </tr>
-        </tbody></table>
-        <button onClick={toCronology}>Ordina</button>
+        <h1>Carrello{cart.length==0? " vuoto": ""}</h1> 
+
+        { cart.length==0? "": <>
+          <table>
+          <tbody>
+            {
+              cart.map((el, i)=>{
+                total+= el.price* el.amount
+                return <tr key={i}>
+                    <td>{el.name}, {el.amount} porzioni</td>
+                    <td>{el.price* el.amount}€</td>
+                    <td><button onClick={()=> deleteOrdination(i)}>❌</button></td>
+                  </tr>
+              })
+            }
+              <tr><td> Totale </td><td> {total}€ </td></tr>
+          </tbody>
+          </table>
+          <button onClick={toCronology}>Ordina</button></>
+        }
       </div>
     </header>
 
     <section>
-      <h1>Cronologia</h1>
-      {cronology.map((el, i)=>{
-        return <CronologyCard
-          key={i}
-          date={el.date}
-          cart={el.cart}
-        />
-      })}
+      <h1>Cronologia {cronology.length==0? "vuota":""}</h1>
+      { cronology.length==0? "":
+        cronology.map((el, i)=>{
+          return <CronologyCard
+            key={i}
+            date={el.date}
+            cart={el.cart}
+          />
+        })
+      }
     </section>
     <Navbar/>
 </div>)

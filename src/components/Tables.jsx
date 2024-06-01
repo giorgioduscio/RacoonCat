@@ -1,24 +1,29 @@
-import { useState } from "react";
 import "./Tables.css"
-import { useSelector } from "react-redux"
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import { selectTable } from "../datas/tablesSlice";
 
 export default function Tables() {
 
-    // TAVOLO SELEZIONATO
-    const [tableSelected, setTableSelected]= useState("Seleziona tavolo")
     // LISTA DI TAVOLI
-    const tables= useSelector(state=> state.tables.value)
+    const tables =useSelector(state=> state.tables.value)
+    const dispatch =useDispatch()
+
+    function click(id) {
+      dispatch(selectTable( id ))
+    }
 
   return (<div className="Tables">
-    <button>{tableSelected}</button>
+    <button>{tables.selected==""? "Seleziona tavolo" :tables.selected}</button>
     <div>
-        {tables.map(el=>{
-            return <p 
-              key={el.id} 
-              onClick={()=> setTableSelected("Tavolo: "+el.id)}>
-              {el.id}
-            </p>
-        })}
+      { tables.list.map(el=>{
+        return el.available? <p 
+          key={el.id} 
+          onClick={()=> click(el.id)}
+          > {el.id}
+        </p>
+        :""
+      })}
     </div>
   </div>)
 }
