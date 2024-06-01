@@ -1,5 +1,6 @@
 .Tables{
-    /* position: absolute; top: 0; */
+    padding: 5px;
+    position: fixed; top: 0;
 }
     .Tables>button{
     }
@@ -12,17 +13,21 @@
         top: 40px; 
         */
 
-        display: flex;
+        display: none;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         align-items: flex-start;
         gap: 5px;
 
         background: var(--c1);
-    }
+        border-radius: 5px;
+    }   
+        /* TAVOLI */
         .Tables>div>p{
-            padding: 10px;
-            background: var(--st);
+            width: 30px;
+            padding: 5px;
+            background: var(--c2);
+            border-radius: 5px;
         }
 .Tables:hover>div{
     display: flex;
