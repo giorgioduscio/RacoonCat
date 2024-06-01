@@ -5,9 +5,9 @@ export const cartSlice= createSlice(
         name: "cart",
         initialState: {
             value:[
-                { name: "Banana", amount: 5, price: 2},
-                { name: "Banana", amount: 5, price: 2},
-                { name: "Banana", amount: 5, price: 2},
+                // { name: "Banana", amount: 5, price: 2},
+                // { name: "Banana", amount: 5, price: 2},
+                // { name: "Banana", amount: 5, price: 2},
             ]
         },
         reducers: {
@@ -26,6 +26,7 @@ export const cartSlice= createSlice(
                 // SOVRASCRIVI
                 state.value=result
             },
+            
             reset: (state)=>{
                 state.value=[]
             }
