@@ -23,7 +23,7 @@ html, body, #root{
 
 nav{
   position: sticky; bottom: 0; z-index: 10;
-  padding: 5px;
+  padding-top: 5px;
 
   display: flex;
   justify-content: space-evenly;
@@ -33,9 +33,11 @@ nav{
 
   background: var(--c2);
 }
-nav>a>img{
-  height: 30px;
-}
+  nav>a>img{
+    padding: 5px;
+    height: 30px;
+    border-radius: 5px;
+  }
 
 header{
   padding:50px 0;
@@ -43,6 +45,11 @@ header{
 section{
   padding:50px 0;
   background: var(--c2);
+}
+
+  /* TODO COLORA I PULSANTI */
+.Home .home, .Ordinations .ordinations, .Cart .cart {
+  background: var(--c5);
 }
 
 
