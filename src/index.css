@@ -22,7 +22,8 @@ html, body, #root{
 }
 
 nav{
-  position: sticky; bottom: 0; z-index: 10;
+  position: fixed; bottom: 0; z-index: 10;
+  width:100% ;
   padding-top: 5px;
 
   display: flex;
@@ -38,13 +39,20 @@ nav{
     height: 30px;
     border-radius: 5px;
   }
+  .act{
+    height: 15px;
+    width: 15px;
+    position: absolute; top: 5px;
 
-header{
+    background: var(--c4);
+    border-radius: 100%;
+  }
+
+header, section{
   padding:50px 0;
+  min-height: 40vh;
 }
 section{
-  min-height: 40vh;
-  padding:50px 0;
   background: var(--c2);
 }
 
@@ -52,8 +60,7 @@ section{
 .Home .home, .Ordinations .ordinations, .Cart .cart {
   background: var(--c5);
 }
-  /* fix */
-.cartPoint{}
+
 
 
 a{

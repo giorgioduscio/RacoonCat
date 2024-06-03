@@ -1,8 +1,9 @@
 .Tables{
-    padding: 5px;
+    padding: 10px;
     position: fixed; top: 0;
 }
     .Tables>button{
+        background: var(--c1);
     }
     .Tables>div{
         padding: 10px;

@@ -24,7 +24,7 @@ export default function Cart() {
     if (tableSelected!="") {
       // fix se i tavolo è stato selezionato
       let newDate ="--/--/--";
-      dispatch(add({ date: newDate, cart:[...cart]}))
+      dispatch(add({ date: newDate, cart:[...cart.list]}))
       
     }
   }
@@ -36,13 +36,13 @@ export default function Cart() {
 
     <header>
       <div className="CartCard">
-        <h1>Carrello{cart.length==0? " vuoto": ""}</h1> 
+        <h1>Carrello{cart.list.length==0? " vuoto": ""}</h1> 
 
-        { cart.length==0? "": <>
+        { cart.list.length==0? "": <>
           <table>
           <tbody>
             {
-              cart.map((el, i)=>{
+              cart.list.map((el, i)=>{
                 total+= el.price* el.amount
                 return <tr key={i}>
                     <td>{el.name}, {el.amount} porzioni</td>

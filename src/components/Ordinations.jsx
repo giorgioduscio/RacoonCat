@@ -7,7 +7,6 @@ import Tables from "./Tables";
 export default function Ordinations() {
     document.title=`Ordinazioni`;
     const products= useSelector(state=> state.products.value)
-    console.log("products", products);
 
     // ARRAY DI CATEGORIE PER COSTRURE L"INDICE
     const categories=[]

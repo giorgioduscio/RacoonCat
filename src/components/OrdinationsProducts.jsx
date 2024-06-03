@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { add } from "../datas/cartSlice"
+import { activeSignalman, add } from "../datas/cartSlice"
 
 export default function OrdinationsProducts({URLimage, category, description, name, price}) {
 
@@ -29,6 +29,7 @@ export default function OrdinationsProducts({URLimage, category, description, na
     if (counter>0) {
       dispatch(add({ amount: counter, name: name, price: price }))
       setCounter(0)
+      dispatch(activeSignalman())
     }
   }
 
