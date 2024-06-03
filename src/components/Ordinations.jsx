@@ -20,14 +20,13 @@ export default function Ordinations() {
       }
     })
 
-  // FIX
   return (<div className="Ordinations">
     <Tables/>
 
     <header>
       <h1>Sommario</h1>
       <div className="OrdinationsIndex">{categories.map(el=>{
-        return <Link key={el.name} to={`#${el.name}`}>
+        return <Link key={el.name} to={`#${el.name}`}> {/* fix */}
           <img src={el.URLimage} alt={el.name} height={"100px"}/>
           <p>{ el.name }</p>
         </Link>  })}
