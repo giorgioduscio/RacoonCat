@@ -1,30 +1,35 @@
 .CartCard{
-    margin: 20px;
+    margin: 5vw;
+    padding: 10px;
 
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
+    color: var(--c2);
     background: var(--c5);
     border-radius: 5px;
 }
-    .CartCard>h1{
-        padding: 5px;
-        color: var(--c1);
-    } 
     .CartCard tr{
-        padding: 5px 10px;
+        padding: 0 5px;
+        border-bottom: 1px solid var(--c3);
     }
-        .CartCard td{
-            padding:0 5px;
-            color: var(--c1);
-        }
         .CartCard tr button{
-            padding: 5px;
+            padding: 0;
+            border-radius: 50%;
             background: transparent;
         }
-    .CartCard>button{
-        margin: 10px;
-    }
+        .CartCard tr>td:nth-child(2){
+            width: 100%;
+            padding: 5px;
+        }
+        .CartCard tr>td.price{
+            font-size: 3vh;
+            text-align: right;
+            font-weight: bold;
+            color: var(--c1);
+        } 
+
 
 
 .Cart section>div{

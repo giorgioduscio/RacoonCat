@@ -38,7 +38,9 @@
     /* TAVOLI */
     .Tables>div>p{
         padding: 5px;
-        background: var(--c2);
+        background: var(--c3);
+        color: var(--c1);
+        font-weight: bold;
         border-radius: 5px;
     }
 .Tables:hover>.showTables{

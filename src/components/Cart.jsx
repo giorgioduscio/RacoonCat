@@ -42,6 +42,7 @@ export default function Cart() {
         date: newDate, 
         cart:[...cart.list]
       }))
+    
     }
   }
 
@@ -52,26 +53,48 @@ export default function Cart() {
 
     <header>
       <div className="CartCard">
-        <h1>Carrello{cart.list.length==0? " vuoto": ""}</h1> 
-
-        { cart.list.length==0? "": <>
-          <table>
-          <tbody>
-            {
-              cart.list.map((el, i)=>{
-                total+= el.price* el.amount
-                return <tr key={i}>
-                    <td>{el.name}, {el.amount} porzioni</td>
-                    <td>{el.price* el.amount}€</td>
-                    <td><button onClick={()=> deleteOrdination(i)}>❌</button></td>
+        <h1>Carrello</h1> 
+        { 
+        cart.list.length==0? 
+          <p className="error">Il carrello è vuoto</p>
+        : 
+          <>
+            <table>
+            <tbody>
+              {
+                cart.list.map((el, i)=>{
+                  total+= el.price* el.amount
+                  return <tr key={i}>
+                    <td>
+                      <button onClick={()=> deleteOrdination(i)}>
+                      <img src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png" alt="" />
+                      </button>
+                    </td>
+                    <td>
+                      <strong>{el.name}</strong>
+                      <p>Porzioni: {el.amount} </p>
+                    </td>
+                    <td className="price">
+                      {el.price* el.amount}€
+                    </td>
                   </tr>
-              })
+                })
+              }
+                <tr>
+                  <td> Totale </td>
+                  <td> : </td>
+                  <td> {total}€ </td>
+                </tr>
+            </tbody>
+            </table>
+
+            {tableSelected==''?
+              <button disabled>Seleziona un tavolo</button>
+            :
+              <button onClick={toCronology}>Ordina</button>
             }
-              <tr><td> Totale </td><td> {total}€ </td></tr>
-          </tbody>
-          </table>
-          <button onClick={toCronology}>Ordina</button>
-        </>}
+          </>
+        }
 
       </div>
     </header>
