@@ -27,10 +27,13 @@
     }
 
 
-
-.CronologyCard{
-    padding: 10px;
-    margin: 20px;
-    background: linear-gradient(var(--c1), transparent);
-    border-radius: 5px;
+.Cart section>div{
+    display: flex;
+    flex-direction: column-reverse;
 }
+    .CronologyCard{
+        padding: 10px;
+        margin: 20px;
+        background: linear-gradient(var(--c1), transparent);
+        border-radius: 5px;
+    }

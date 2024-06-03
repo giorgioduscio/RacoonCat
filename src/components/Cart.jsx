@@ -7,8 +7,23 @@ import Navbar from "./Navbar"
 import { useDispatch, useSelector } from "react-redux"
 import Tables from "./Tables";
 
-export default function Cart() {
+// FORMATO DATA ODIERNA
+const formatDate={ // mercoledi 19/12/2022
+  //DATA
+  weekday:"short", //mer||mercoledi
+  day:"2-digit", 
+  month:"2-digit",
+  year:"numeric", 
+  
+  //ORARIO
+  hour:"2-digit",
+  minute:"2-digit",
+  second:"2-digit",
+  hour12:false, // analogico||digitale
+}
 
+
+export default function Cart() {
   // CANCELLA ELEMENTI DEL CARRELLO
   const cart =useSelector(state=> state.cart.value)
   const tableSelected =useSelector(state=> state.tables.value.selected)
@@ -20,12 +35,13 @@ export default function Cart() {
   // AGGIUNGE IL CARRELLO ALLA CRONOLOGIA
   const cronology =useSelector(state=> state.cronology.value)
   function toCronology() {
-
     if (tableSelected!="") {
-      // fix se i tavolo è stato selezionato
-      let newDate ="--/--/--";
-      dispatch(add({ date: newDate, cart:[...cart.list]}))
-      
+      let newDate =new Date().toLocaleString(undefined,formatDate)
+      dispatch(add({ 
+        tableSelected: tableSelected, 
+        date: newDate, 
+        cart:[...cart.list]
+      }))
     }
   }
 
@@ -54,22 +70,28 @@ export default function Cart() {
               <tr><td> Totale </td><td> {total}€ </td></tr>
           </tbody>
           </table>
-          <button onClick={toCronology}>Ordina</button></>
-        }
+          <button onClick={toCronology}>Ordina</button>
+        </>}
+
       </div>
     </header>
 
     <section>
-      <h1>Cronologia {cronology.length==0? "vuota":""}</h1>
-      { cronology.length==0? "":
-        cronology.map((el, i)=>{
-          return <CronologyCard
-            key={i}
-            date={el.date}
-            cart={el.cart}
-          />
-        })
-      }
+      <h1>Cronologia</h1>
+      <div>
+        { cronology.length==0? 
+          <p>Non hai ancora effettuato alcun ordine</p>
+          :
+          cronology.map((el, i)=>{
+            return <CronologyCard
+              key={i}
+              tableSelected={el.tableSelected}
+              date={el.date}
+              cart={el.cart}
+            />
+          })
+        }
+      </div>
     </section>
     <Navbar/>
 </div>)

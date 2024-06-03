@@ -1,10 +1,11 @@
 import React from "react"
 import { useDispatch } from "react-redux";
 
-export default function CronologyCard({date, cart}) {
+export default function CronologyCard({tableSelected, date, cart}) {
   let total=0;
   return (<div className="CronologyCard">
     <h2>{date}</h2>
+    <p>Al tavolo {tableSelected}</p>
     
     <table><tbody>
       {cart.map((el, i)=>{
