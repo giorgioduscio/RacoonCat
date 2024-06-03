@@ -49,10 +49,11 @@ nav{
 
   
 header, section{
-  padding:50px 0;
   min-height: 40vh;
   color: var(--c5);
 }
+header { padding-top: 50px; }
+section { padding-bottom: 50px; }
 
   /* TODO COLORA I PULSANTI */
 .Home .home, .Ordinations .ordinations, .Cart .cart {

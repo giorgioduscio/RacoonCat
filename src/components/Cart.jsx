@@ -83,7 +83,7 @@ export default function Cart() {
                 <tr>
                   <td> Totale </td>
                   <td> : </td>
-                  <td> {total}€ </td>
+                  <td className="price"> {total}€ </td>
                 </tr>
             </tbody>
             </table>
@@ -101,7 +101,7 @@ export default function Cart() {
 
     <section>
       <h1>Cronologia</h1>
-      <div>
+      <div className="cronology">
         { cronology.length==0? 
           <p>Non hai ancora effettuato alcun ordine</p>
           :

@@ -27,18 +27,36 @@
             font-size: 3vh;
             text-align: right;
             font-weight: bold;
-            color: var(--c1);
         } 
 
 
 
-.Cart section>div{
+.cronology{
+    padding: 20px;
     display: flex;
     flex-direction: column-reverse;
+    gap: 20px;
 }
     .CronologyCard{
         padding: 10px;
-        margin: 20px;
-        background: linear-gradient(var(--c1), transparent);
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: left;
+        background: var(--c2);
         border-radius: 5px;
     }
+    .CronologyCard tr{
+        padding: 0 5px;
+        border-bottom: 1px solid var(--c3);
+    }
+        .CronologyCard tr>td:first-child{
+            width: 100%;
+            padding: 5px;
+        }
+        .CronologyCard tr>td.price{
+            font-size: 3vh;
+            text-align: right;
+            font-weight: bold;
+        } 
