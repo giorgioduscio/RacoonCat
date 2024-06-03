@@ -10,7 +10,7 @@ html, body, #root{
   --c5:#d1cdb3;
   --st:#50505050;
 
-  background: linear-gradient(30deg, var(--c1), var(--c3));
+  background: var(--c1);
 }
 *{
   padding: 0;
@@ -61,7 +61,10 @@ section{
   background: var(--c5);
 }
 
-
+.error{
+  font-weight: bold;
+  color: red;
+}
 
 a{
   text-decoration: none;
@@ -77,6 +80,9 @@ button{
   border: 0;
   border-radius: 10px;
   background: var(--c3);
+}
+button:disabled{
+  background: var(--st);
 }
   button img, a img{
     height: 25px;
