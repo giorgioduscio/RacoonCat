@@ -3,6 +3,7 @@ import Navbar from "./Navbar"
 import { useSelector } from "react-redux";
 import OrdinationsProducts from "./OrdinationsProducts";
 import Tables from "./Tables";
+import { Link } from "react-router-dom";
 
 export default function Ordinations() {
     document.title=`Ordinazioni`;
@@ -26,10 +27,10 @@ export default function Ordinations() {
     <header>
       <h1>Sommario</h1>
       <div className="OrdinationsIndex">{categories.map(el=>{
-        return <div key={el.name}>
+        return <Link key={el.name} to={`#${el.name}`}>
           <img src={el.URLimage} alt={el.name} height={"100px"}/>
           <p>{ el.name }</p>
-        </div>  })}
+        </Link>  })}
       </div>
     </header>
 
@@ -37,7 +38,7 @@ export default function Ordinations() {
       <div className="OrdinationsShow"> {products.map((el, i, products)=>{
 
         return <>
-          <h2>
+          <h2 id={el.category}>
             {i===0 || products[i].category!= products[i-1].category? `${el.category}`:''}
           </h2> 
           <OrdinationsProducts
