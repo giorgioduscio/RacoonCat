@@ -9,48 +9,76 @@
     gap: 10px;
     overflow-x: scroll;
 }
-.OrdinationsIndex>*{
-    padding: 5px;
-    border-radius: 10px;
-    background: var(--c1);
-}
-.OrdinationsIndex img{
-    height: 100px;
+    .OrdinationsIndex>*{
+        padding: 5px;
+        border-radius: 10px;
+        background: var(--c2);
+        color: var(--c5);
+    }
+    .OrdinationsIndex img{
+        height: 100px;
+    }
+
+
+    /* TODO CARD */
+.Ordinations h2{
+    margin: 50px 10px 10px;
 }
 
-    /* TODO INDICE DELLE CATEGORIE */
-.OrdinationsShow{
+.OrdinationsCard{
+    margin: 20px;
+    max-width: 300px;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
+    position: relative;
+    overflow: hidden;
 
-.OrdinationsProducts{
-    width: 250px;
-    height: 200px;
 
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-
+    background: var(--c2);
     border-radius: 10px;
 }
-    .OrdinationsProducts>div{
-        padding: 5px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
+    .OrdinationsCard>img{
+        width: 100%;
+    }
+    .OrdinationsCard>.price{
+        /* margin: 10px; */
+        padding: 10px;
 
-        text-align: left;
-        background: linear-gradient(var(--st), var(--c2));
+        position: absolute;
+
+        background: var(--c5);
+        /* border-radius: 50%; */
     }
-    .OrdinationsProducts .amount{
-        align-items: center;
-        gap: 5px;
+    .OrdinationsCard>div{
+        padding: 10px;
+        display: flex;
+        gap: 10px;
     }
-    .amount button{
-        padding: 5px;
-        min-width: 30px;
-        min-height: 30px;
-    }
+        .OrdinationsCard .info{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            text-align: left;
+        }
+        .amount{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            background: var(--c5);
+            border-radius: 5px;
+        }
+        .amount>*:last-child{
+            border: 0;
+        }
+        .amount button{
+            padding: 5px;
+            border-radius: 0;
+            background: transparent;
+            border-bottom: 1px solid var(--c2);
+        }
+        .amount button:active{
+            background-color: var(--c3);
+        }
