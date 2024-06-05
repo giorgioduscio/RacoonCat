@@ -13,7 +13,8 @@ export default function Navbar() {
     dispatch(resetSignalman())
   }
 
-  return (<nav>
+  return (
+  <nav>
     {router.routes.map(el=>{
       return <Link key={el.id} to={el.path}>{ 
         

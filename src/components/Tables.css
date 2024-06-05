@@ -7,7 +7,7 @@
 .Tables>.view{
     padding: 5px 20px;
     display: flex;
-    gap: 10px;
+    gap: 5px;
     align-items: stretch;
     background: var(--c1);
 }
@@ -18,7 +18,12 @@
         background: var(--c4);
     }
     .Tables>.view>button{
+        padding: 5px;
         border-radius: 5px;
+    }
+    .Tables>.view>button>div{
+        padding: 5px;
+        border-left: 1px solid var(--c2);
     }
 
 

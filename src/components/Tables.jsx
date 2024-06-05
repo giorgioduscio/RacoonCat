@@ -4,37 +4,46 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectTable } from "../datas/tablesSlice";
 
 export default function Tables() {
+  // DROPDOWN
+  const 
+    [isDrop, setIsDrop] =useState(false),
+    dropView ={ display: isDrop? "flex" :"none" },
+    rotateIcon ={ transform: isDrop? "rotate(270deg)" :"rotate(180deg)" }
 
-    // LISTA DI TAVOLI
-    const tables =useSelector(state=> state.tables.value)
-    const dispatch =useDispatch()
+  // LISTA DI TAVOLI
+  const 
+    tables =useSelector(state=> state.tables.value),
+    dispatch =useDispatch()
+  function handleClick(id) {
+    dispatch(selectTable( id ))
+    setIsDrop(false)
+  }
 
-    function handleClick(id) {
-      dispatch(selectTable( id ))
-    }
 
-
-  return (<div className="Tables">
+  return (
+  <div className="Tables"> 
     <div className="view">
-      <img src="https://cdn-icons-png.flaticon.com/512/3100/3100540.png" alt="" />
-      <button>{
+      <img src="https://cdn-icons-png.flaticon.com/512/3100/3100540.png" />
+
+      <button onClick={()=> setIsDrop(!isDrop)}>
+        <img 
+          src="https://i.pinimg.com/originals/08/9b/15/089b153bb357b7e7fd0b3a8d28dc26bd.png" 
+          style={rotateIcon}
+        />
+        {
       tables.selected==""? 
-        <p className="error">Seleziona tavolo</p>
-        :
-        tables.selected
+        <div className="error">Seleziona</div>
+      :
+        <div>{ tables.selected }</div> 
       }</button>
     </div>
 
-    <div className="showTables">{ 
-    tables.list.map(el=>{
-      return el.available? 
-      <p 
-        key={el.id} 
-        onClick={()=> handleClick(el.id)}
-      > 
+    <div className="showTables" style={dropView}>{ 
+    tables.list.map(el=>{ 
+      return el.available && 
+      <p key={el.id} onClick={()=> handleClick(el.id)}> 
         {el.id}
       </p>
-      :""
     })
     }</div>
   </div>)
