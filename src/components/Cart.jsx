@@ -29,21 +29,20 @@ export default function Cart() {
 
     <section>
       <h1>Cronologia</h1>
-      <div className="cronology">
-        { cronology.length==0? 
-          <p>Non hai ancora effettuato alcun ordine</p>
-          :
-          cronology.map((el, i)=>{
-            return <CronologyCard
-              key={i}
-              tableSelected={el.tableSelected}
-              date={el.date}
-              cart={el.cart}
-            />
-          })
-        }
-      </div>
+      <div className="cronology"> { cronology.length==0? 
+        <p>Non hai ancora effettuato alcun ordine</p>
+
+      : cronology.map((el, i)=>{ return (
+         <CronologyCard
+          key={i}
+          tableSelected={el.tableSelected}
+          date={el.date}
+          cart={el.cart}
+        />
+
+      )})}</div>
     </section>
+    
     <Navbar/>
-</div>)
+  </div>)
 }
