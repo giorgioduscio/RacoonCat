@@ -82,6 +82,7 @@ button{
 }
 button:disabled{
   background: var(--st);
+  color: red;
 }
   button img, a img{
     height: 25px;

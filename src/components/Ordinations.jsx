@@ -39,7 +39,7 @@ export default function Ordinations() {
     <section>
       { products.map((el, i, products)=>{
 
-        return <>
+        return <div key={i}>
           { i===0 || products[i].category!= products[i-1].category? 
             <h2 id={el.category}>{el.category}</h2>
           :
@@ -55,7 +55,7 @@ export default function Ordinations() {
             price={el.price}
           />
         </div>
-        </>
+        </div>
 
       })
       }
