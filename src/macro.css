@@ -63,7 +63,42 @@ section { padding-bottom: 50px; }
   position: relative;
   overflow: hidden;
   display: flex;
+<<<<<<< HEAD:src/macro.css
   justify-content: center;
+=======
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  
+  border: 0;
+  border-radius: 10px;
+  background: var(--c3);
+}
+button:disabled{
+  background: var(--st);
+  color: red;
+}
+  button img, a img{
+    height: 25px;
+  }
+
+h1{ font-size: 6vh; }
+h2{ font-size: 5vh; }
+h3{ font-size: 4vh; }
+h4{ font-size: 3vh; }
+h5{ font-size: 2vh; }
+h6{ font-size: 1vh; }
+
+table, tbody, tr{
+  display: block;
+  text-align: left;
+}
+tr:last-child{
+  background: var(--c3);
+  color: var(--c5);
+  font-weight: bold;
+  font-size: 3vh;
+>>>>>>> fd825588c7fced959107600a80ffc601455e6e83:src/index.css
 }
   .gap::after{
     height: 100%;
