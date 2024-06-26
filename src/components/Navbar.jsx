@@ -16,6 +16,7 @@ export default function Navbar() {
   return (
   <nav>
     {router.routes.map(el=>{
+      if (el.path!='' && el.path!='*')
       return <Link key={el.id} to={el.path}>{ 
         
         el.name=="cart" & signalman? 

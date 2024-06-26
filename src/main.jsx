@@ -1,8 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import "./App.css"
-import "./index.css"
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import "./micro.css"
+import "./macro.css"
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 
 // STORE
 import {Provider} from "react-redux"
@@ -16,10 +16,11 @@ import Cart from "./components/Cart"
 
 
 export const router= createBrowserRouter([
+  { path:'', element:<Navigate to={"/home"}/> },
   {
     name: "home",
     icon: "https://cdn.icon-icons.com/icons2/1660/PNG/512/3844470-home-house_110332.png",
-    path: `/`,
+    path: "/home",
     element:<Home/>
   },
   {
@@ -34,6 +35,7 @@ export const router= createBrowserRouter([
     path: "/cart",
     element:<Cart/>
   },
+  { path:'*', element:<Navigate to={"/home"}/> },
 ])
 
 
