@@ -9,7 +9,7 @@ export default function Ordinations() {
     document.title=`Ordinazioni`;
     const products= useSelector(state=> state.products.value)
 
-    // ARRAY DI CATEGORIE PER COSTRURE L"INDICE
+    // ARRAY DI CATEGORIE PER COSTRURE L'INDICE
     const categories=[]
     products.map((el, i, products)=>{
       if (
@@ -27,24 +27,24 @@ export default function Ordinations() {
     <header>
       <h1>Sommario</h1>
       <div className="OrdinationsIndex">
-        {categories.map(el=>{
-          return <Link key={el.name} to={`#${el.name}`}> {/* fix */}
+        {categories.map(el=>
+          <Link key={el.name} to={`#${el.name}`}> {/* fix */}
             <img src={el.URLimage} alt={el.name} height={"100px"}/>
-            <p>{ el.name }</p>
-          </Link>  })
-        }
+            <p className="categoryTitle">{ el.name }</p>
+          </Link>  
+        )}
       </div>
     </header>
 
     <section>
-      { products.map((el, i, products)=>{
+      { products.map((el, i, products)=>
 
-        return <div key={i}>
-          { i===0 || products[i].category!= products[i-1].category? 
-            <h2 id={el.category}>{el.category}</h2>
-          :
-            ''
-          }
+        <div key={i}>
+        { i===0 || products[i].category!= products[i-1].category? 
+          <h2 id={el.category}>{el.category}</h2>
+        :
+          ''
+        }
          
         <div className="OrdinationsShow">
           <OrdinationsCard
@@ -57,8 +57,7 @@ export default function Ordinations() {
         </div>
         </div>
 
-      })
-      }
+      )}
     </section>
     <Navbar/>
   </div>)

@@ -28,7 +28,7 @@ export const cartSlice= createSlice(
                     }
                 })
                 // SOVRASCRIVI
-                state.value.list=result
+                state.value.list =result
             },
             
             resetSignalman: (state)=>{ state.value.signalman =false },
