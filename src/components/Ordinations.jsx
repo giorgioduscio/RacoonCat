@@ -3,7 +3,6 @@ import Navbar from "./Navbar"
 import { useSelector } from "react-redux";
 import OrdinationsCard from "./OrdinationsCard";
 import Tables from "./Tables";
-import { Link } from "react-router-dom";
 import OrdinationsIndex from "./OrdinationsIndex";
 
 export default function Ordinations() {

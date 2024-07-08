@@ -32,7 +32,7 @@ export default function Cart() {
       <div className="cronology"> { cronology.length==0? 
         <p className="error">Non hai ancora effettuato alcun ordine</p>
 
-      : cronology.map((el, i)=>{ return (
+      : cronology.map((el, i)=>
          <CronologyCard
           key={i}
           tableSelected={el.tableSelected}
@@ -40,7 +40,7 @@ export default function Cart() {
           cart={el.cart}
         />
 
-      )})}</div>
+      )}</div>
     </section>
     
     <Navbar/>
