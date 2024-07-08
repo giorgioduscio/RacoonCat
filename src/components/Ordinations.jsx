@@ -4,20 +4,16 @@ import { useSelector } from "react-redux";
 import OrdinationsCard from "./OrdinationsCard";
 import Tables from "./Tables";
 import { Link } from "react-router-dom";
+import OrdinationsIndex from "./OrdinationsIndex";
 
 export default function Ordinations() {
     document.title=`Ordinazioni`;
     const products= useSelector(state=> state.products.value)
 
-    // ARRAY DI CATEGORIE PER COSTRURE L'INDICE
-    const categories=[]
-    products.map((el, i, products)=>{
-      if (
-        i==0 || 
-        products[i].category!= products[i-1].category
-      ) {
-        categories.push({ name: el.category, URLimage: el.URLimage})
-      }
+    const categories =[]
+    products.map((category, i, products)=>{
+      i==0 || products[i].category!= products[i-1].category&&
+        categories.push({ name: category.category, URLimage: category.URLimage})
     })
 
   return (
@@ -25,40 +21,23 @@ export default function Ordinations() {
     <Tables/>
 
     <header>
-      <h1>Sommario</h1>
-      <div className="OrdinationsIndex">
-        {categories.map(el=>
-          <Link key={el.name} to={`#${el.name}`}> {/* fix */}
-            <img src={el.URLimage} alt={el.name} height={"100px"}/>
-            <p className="categoryTitle">{ el.name }</p>
-          </Link>  
-        )}
-      </div>
+      <OrdinationsIndex categories={categories}/>
     </header>
 
-    <section>
-      { products.map((el, i, products)=>
-
-        <div key={i}>
-        { i===0 || products[i].category!= products[i-1].category? 
-          <h2 id={el.category}>{el.category}</h2>
-        :
-          ''
-        }
-         
-        <div className="OrdinationsShow">
+    <section>{ categories.map(category=>
+      <div className="productCategory" key={category.name}>
+        <h2 className="productCategoryTitle">{category.name}</h2>
+          
+        <div className="flexbox">{products.map(product=>
+          product.category ==category.name && 
           <OrdinationsCard
-            URLimage={el.URLimage}
-            category={el.category}
-            description={el.description}
-            name={el.name}
-            price={el.price}
+            key={product.name}
+            product={{...product}}
           />
-        </div>
-        </div>
+        )}</div>
+      </div>
+    )}</section>
 
-      )}
-    </section>
     <Navbar/>
   </div>)
 }

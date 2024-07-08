@@ -30,7 +30,7 @@ export default function Cart() {
     <section>
       <h1>Cronologia</h1>
       <div className="cronology"> { cronology.length==0? 
-        <p>Non hai ancora effettuato alcun ordine</p>
+        <p className="error">Non hai ancora effettuato alcun ordine</p>
 
       : cronology.map((el, i)=>{ return (
          <CronologyCard
