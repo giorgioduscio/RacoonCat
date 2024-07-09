@@ -115,11 +115,11 @@ export const productsSlice= createSlice({
     },
 
     reducers:{
-        add: (state, newValue)=>{
+        addProducts: (state, newValue)=>{
             console.log('action', newValue);
             state.value.push(newValue.payload) 
         },
-        remove: (state, id)=>{
+        removeProducts: (state, id)=>{
             // SALVA SOLO I DATI DA NON CANCELLARE
             let result=[]
             state.value.map(el=> {
@@ -133,5 +133,5 @@ export const productsSlice= createSlice({
     }
 })
 
-export const {add, remove}= productsSlice.actions
-export const productsReducer= productsSlice.reducer
+export const {addProducts, removeProducts} =productsSlice.actions
+export const productsReducer =productsSlice.reducer

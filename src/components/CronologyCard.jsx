@@ -1,5 +1,4 @@
 import React from "react"
-import { useDispatch } from "react-redux";
 
 export default function CronologyCard({tableSelected, date, cart}) {
   let total =0;

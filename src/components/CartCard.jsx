@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
-import { remove } from "../datas/cartSlice";
-import { add } from "../datas/cronologySlice";
+import { removeCart } from "../datas/cartSlice";
+import { addCronology } from "../datas/cronologySlice";
 import { formatDate } from "../tools/formatDate";
 
 export default function CartCard() {
@@ -16,7 +16,7 @@ export default function CartCard() {
   function toCronology() {
     if (tableSelected!="") {
       let newDate =new Date().toLocaleString(undefined,formatDate)
-      dispatch(add({ 
+      dispatch(addCart({ 
         tableSelected: tableSelected, 
         date: newDate, 
         cart:[...cart.list]
@@ -36,7 +36,7 @@ export default function CartCard() {
           cartTotalPrice+= el.price* el.amount
           return <tr key={i}>
             <td>
-              <button onClick={()=> dispatch(remove(i))}>
+              <button onClick={()=> dispatch(removeCart(i))}>
                 <img src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png" alt="" />
               </button>
             </td>

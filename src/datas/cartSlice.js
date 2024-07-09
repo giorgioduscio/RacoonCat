@@ -15,11 +15,11 @@ export const cartSlice= createSlice(
 
         },
         reducers: {
-            add: (state, newValue)=>{
+            addCart: (state, newValue)=>{
                 state.value.list.push(newValue.payload) 
             },
 
-            remove: (state, id)=>{
+            removeCart: (state, id)=>{
                 // SALVA SOLO I DATI DA NON CANCELLARE
                 let result=[]
                 state.value.list.map((el, index)=> {
@@ -37,5 +37,5 @@ export const cartSlice= createSlice(
     }
 )
 
-export const {add, remove, resetSignalman, activeSignalman}= cartSlice.actions
+export const {addCart, removeCart, resetSignalman, activeSignalman}= cartSlice.actions
 export const cartReducer= cartSlice.reducer

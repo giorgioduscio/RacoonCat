@@ -26,12 +26,12 @@ export const cronologySlice= createSlice(
         },
 
         reducers: {
-            add: (state, newData)=>{
+            addCronology: (state, newData)=>{
                 state.value.push(newData.payload) 
             },
         }
     }
 )
 
-export const {add, remove}= cronologySlice.actions
-export const cronologyReducer= cronologySlice.reducer
+export const {addCronology, removeCronology} =cronologySlice.actions
+export const cronologyReducer =cronologySlice.reducer
