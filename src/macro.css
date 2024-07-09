@@ -22,7 +22,6 @@ html, body, #root{
 }
   
 header, section{
-  min-height: 40vh;
   color: var(--c5);
 }
 header { padding-top: 50px; }

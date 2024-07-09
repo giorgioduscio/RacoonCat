@@ -1,14 +1,20 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+export default function OrdinationsIndex({categories, productFilter, setProductFilter}) {
+  return (
+  <div className="OrdinationsIndex">
+    <h1>Categorie</h1>
 
-export default function OrdinationsIndex({categories}) {
-  return (<div className="OrdinationsIndex">
-    <h1>Sommario</h1>
-    <div className="indexSlider">{categories.map(category=>
-      <Link key={category.name} to={`#${category.name}`}> {/* fix */}
+    <div className="indexSlider"> {productFilter ==''?
+    categories.map(category=>
+      <div key={category.name} onClick={() =>setProductFilter(category.name)}>
         <img src={category.URLimage} alt={category.name} height={"100px"}/>
         <p className="categoryTitle">{ category.name }</p>
-      </Link>  
-    )}</div>
-  </div>)
+      </div>  
+    )
+    :
+      <div style={{margin:"auto"}} onClick={() =>setProductFilter("")}>
+          ❌ {productFilter}
+      </div>
+    }</div>
+  </div>
+  )
 }

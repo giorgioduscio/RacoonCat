@@ -4,23 +4,40 @@ import { useSelector } from "react-redux";
 import OrdinationsCard from "../ordinations/OrdinationsCard";
 import Tables from "../tables/Tables";
 import OrdinationsIndex from "../ordinations/OrdinationsIndex";
+import { useState } from "react";
 
 export default function Ordinations() {
     document.title=`Ordinazioni`;
-    const products= useSelector(state=> state.products.value)
+    const 
+      products= useSelector(state=> state.products.value),
+      [productFilter, setProductFilter] =useState("")
 
-    const categories =[]
-    products.map((category, i, products)=>{
-      i==0 || products[i].category!= products[i-1].category&&
-        categories.push({ name: category.category, URLimage: category.URLimage})
-    })
+
+      function allCategories() {
+        let result =[]
+        products.map((category, i, products)=>{
+          i==0 || products[i].category !=products[i-1].category&&
+            result.push({ name: category.category, URLimage: category.URLimage})
+        })  
+        if(productFilter ==='') 
+          return result
+        else
+          return result.filter((category)=> category.name==productFilter)
+      }
+    const categories =allCategories() 
+
+    console.log('products', categories);
 
   return (
   <div className="Ordinations">
     <Tables/>
 
     <header>
-      <OrdinationsIndex categories={categories}/>
+      <OrdinationsIndex 
+        categories={categories} 
+        productFilter={productFilter}
+        setProductFilter={setProductFilter}
+      />
     </header>
 
     <section>{ categories.map(category=>
@@ -34,8 +51,8 @@ export default function Ordinations() {
             product={{...product}}
           />
         )}</div>
-      </div>
-    )}</section>
+      </div>)
+    }</section>
 
     <Navbar/>
   </div>)
