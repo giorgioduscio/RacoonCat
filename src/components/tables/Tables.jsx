@@ -1,7 +1,7 @@
 import "./Tables.css"
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { selectTable } from "../datas/tablesSlice";
+import { selectTable } from "../../datas/tablesSlice";
 
 export default function Tables() {
   // DROPDOWN

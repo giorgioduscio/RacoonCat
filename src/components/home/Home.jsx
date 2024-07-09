@@ -1,5 +1,5 @@
 import "./Home.css"
-import Navbar from './Navbar'
+import Navbar from "../navbar/Navbar"
 
 export default function Home() {
   return (

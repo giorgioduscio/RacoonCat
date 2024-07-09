@@ -1,9 +1,9 @@
 import "./Ordinations.css"
-import Navbar from "./Navbar"
+import Navbar from "../navbar/Navbar";
 import { useSelector } from "react-redux";
-import OrdinationsCard from "./OrdinationsCard";
-import Tables from "./Tables";
-import OrdinationsIndex from "./OrdinationsIndex";
+import OrdinationsCard from "../ordinations/OrdinationsCard";
+import Tables from "../tables/Tables";
+import OrdinationsIndex from "../ordinations/OrdinationsIndex";
 
 export default function Ordinations() {
     document.title=`Ordinazioni`;

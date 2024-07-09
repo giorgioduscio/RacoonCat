@@ -1,8 +1,8 @@
 import "./Cart.css"
 
 import CronologyCard from "./CronologyCard";
-import Navbar from "./Navbar"
-import Tables from "./Tables";
+import Navbar from "../navbar/Navbar";
+import Tables from "../tables/Tables";
 import CartCard from "./CartCard"
 import { useSelector } from "react-redux";
 

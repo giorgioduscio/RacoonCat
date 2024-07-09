@@ -9,9 +9,9 @@ import {Provider} from "react-redux"
 import store from "./datas/store"
 
 // PAGES
-import Home from "./components/Home"
-import Ordinations from "./components/Ordinations"
-import Cart from "./components/Cart"
+import Home from "./components/home/Home"
+import Ordinations from "./components/ordinations/Ordinations"
+import Cart from "./components/cart/Cart"
 
 
 

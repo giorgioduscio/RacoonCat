@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { activeSignalman, addCart } from "../datas/cartSlice"
+import { activeSignalman, addCart } from "../../datas/cartSlice"
 
 export default function OrdinationsCard({product}) {
   const {URLimage, category, description, name, price} =product

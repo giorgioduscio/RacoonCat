@@ -1,8 +1,8 @@
 import "./Navbar.css"
 import { Link } from "react-router-dom"
-import { router } from "../main"
+import { router } from "../../main"
 import { useDispatch, useSelector } from "react-redux"
-import { resetSignalman } from "../datas/cartSlice"
+import { resetSignalman } from "../../datas/cartSlice"
 
 export default function Navbar() {
   // quando premi il pulsante della pagina del carrello, il punto scompare
