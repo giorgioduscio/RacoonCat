@@ -1,34 +1,43 @@
 nav{
-    position: fixed; bottom: 0; z-index: 10;
-    width:100vw;
-    height: 50px;
-  
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  
-    background: var(--c2);
-    box-shadow: 0 0 20px 0 black;
-  }
-    nav>a img{
-      padding: 3px;
-      height: 5.5vh;
-      border-radius: 5px;
-    }
-    .act{
-      height: 15px;
-      width: 15px;
-      position: absolute; top: 5px;
-  
-      background: var(--c4);
-      border-radius: 100%;
-    }
+  position: fixed; bottom: 0; z-index: 10;
+  width:100vw;
+  height: 50px;
 
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  background: var(--c2);
+  box-shadow: 0 0 20px 0 black;
+}
+  nav>a img{
+    padding: 3px;
+    height: 5.5vh;
+    border-radius: 5px;
+  }
+  .act{
+    height: 15px;
+    width: 15px;
+    position: absolute; top: 0;
+
+    background: var(--c4);
+    border-radius: 100%;
+  }
 
     
   /* TODO COLORA I PULSANTI */
-  .Home .home, .Ordinations .ordinations, .Cart .cart {
-    background: var(--c5);
+.Home .home, .Ordinations .ordinations, .Cart .cart {
+  background: var(--c5);
+}
+
+@media only screen and (min-width:600px){
+  nav{
+    width: 50px;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
   }
+}

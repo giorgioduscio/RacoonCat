@@ -21,25 +21,14 @@ html, body, #root{
   transition: 0.3s;
 }
   
-header, section{
-  color: var(--c5);
-}
 article{
   padding-bottom: 50px;
+  color: var(--c5);
 }
 
 
-.gap{
-  height: 10vh;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 10px;
-  
-  border: 0;
-  border-radius: 10px;
-  background: var(--c3);
+@media only screen and (min-width:600px){
+  article>section{
+    padding-left: 50px;
+  }
 }

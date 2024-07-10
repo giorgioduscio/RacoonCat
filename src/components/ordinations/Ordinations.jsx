@@ -30,17 +30,15 @@ export default function Ordinations() {
 
   return (
   <article className="Ordinations">
-    <Tables/>
-
-    <header>
+    <section>
+      <Tables/>
       <OrdinationsIndex 
         categories={categories} 
         productFilter={productFilter}
         setProductFilter={setProductFilter}
       />
-    </header>
 
-    <section>{ categories.map(category=>
+      { categories.map(category=>
       <div className="productCategory" key={category.name}>
         <h2 className="productCategoryTitle">{category.name}</h2>
           
@@ -51,9 +49,9 @@ export default function Ordinations() {
             product={{...product}}
           />
         )}</div>
-      </div>)
-    }</section>
+      </div>)}
+    </section>
 
     <Navbar/>
-  </article >)
+  </article>)
 }

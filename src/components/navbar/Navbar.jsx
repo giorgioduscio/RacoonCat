@@ -7,7 +7,7 @@ import { resetSignalman } from "../../datas/cartSlice"
 export default function Navbar() {
   // quando premi il pulsante della pagina del carrello, il punto scompare
   const 
-    signalman =useSelector(s=>s.cart.value.signalman),
+    signalman =useSelector(state=>state.cart.value.signalman),
     dispatch =useDispatch()
 
   return (
@@ -17,7 +17,7 @@ export default function Navbar() {
       return <Link key={el.id} to={el.path}>{ 
         
         el.name=="cart" & signalman? 
-        <div>
+        <div style={{position:"relative"}}>
           <div className="act"/> 
           <img 
             src={el.icon} 

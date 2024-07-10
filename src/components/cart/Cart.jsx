@@ -8,10 +8,12 @@ export default function Cart() {
   
   return (
   <article className="Cart">
-    <Tables/>
+    <section>
+      <Tables/>
 
-    <CartCard/>
-    <Cronology/>
+      <CartCard/>
+      <Cronology/>
+    </section>
     
     <Navbar/>
   </article>)
