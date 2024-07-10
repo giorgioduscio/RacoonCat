@@ -20,7 +20,7 @@ export default function Cart() {
 
   
   return (
-  <div className="Cart">
+  <article className="Cart">
     <Tables/>
 
     <header>
@@ -44,5 +44,5 @@ export default function Cart() {
     </section>
     
     <Navbar/>
-  </div>)
+  </article >)
 }

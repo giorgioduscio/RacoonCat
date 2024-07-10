@@ -1,3 +1,6 @@
+.Cart{
+    min-height: 100vh;
+}
 .CartCard{
     margin: 5vw;
     padding: 10px;

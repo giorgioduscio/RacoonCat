@@ -29,7 +29,7 @@ export default function Ordinations() {
     console.log('products', categories);
 
   return (
-  <div className="Ordinations">
+  <article className="Ordinations">
     <Tables/>
 
     <header>
@@ -55,5 +55,5 @@ export default function Ordinations() {
     }</section>
 
     <Navbar/>
-  </div>)
+  </article >)
 }

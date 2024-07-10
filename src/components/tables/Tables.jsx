@@ -23,8 +23,6 @@ export default function Tables() {
   return (
   <div className="Tables"> 
     <div className="view">
-      <img src="https://cdn-icons-png.flaticon.com/512/3100/3100540.png" />
-
       <button onClick={()=> setIsDrop(!isDrop)}>
         <img 
           src="https://i.pinimg.com/originals/08/9b/15/089b153bb357b7e7fd0b3a8d28dc26bd.png" 

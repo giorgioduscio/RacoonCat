@@ -9,9 +9,6 @@ export default function Navbar() {
   const 
     signalman =useSelector(s=>s.cart.value.signalman),
     dispatch =useDispatch()
-  function handleClick() {
-    dispatch(resetSignalman())
-  }
 
   return (
   <nav>
@@ -20,15 +17,15 @@ export default function Navbar() {
       return <Link key={el.id} to={el.path}>{ 
         
         el.name=="cart" & signalman? 
-        <>
+        <div>
           <div className="act"/> 
           <img 
             src={el.icon} 
             alt={el.name} 
             className={el.name} 
-            onClick={handleClick}
+            onClick={()=> dispatch(resetSignalman())}
           />
-        </>
+        </div>
         :
         <img 
           src={el.icon} 

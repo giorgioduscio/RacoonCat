@@ -24,8 +24,9 @@ html, body, #root{
 header, section{
   color: var(--c5);
 }
-header { padding-top: 50px; }
-section { padding-bottom: 50px; }
+article{
+  padding-bottom: 50px;
+}
 
 
 .gap{

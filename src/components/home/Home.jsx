@@ -3,7 +3,7 @@ import Navbar from "../navbar/Navbar"
 
 export default function Home() {
   return (
-  <div className="Home">
+  <article className="Home">
     <div className="draw"></div>
     <header>
       <h3>Lorem ipsum dolor sit amet.</h3>
@@ -18,5 +18,5 @@ export default function Home() {
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur distinctio itaque veritatis! Modi, impedit fuga? Dolorum non tempore ipsa itaque iusto ut, exercitationem, praesentium aspernatur nihil deserunt possimus est temporibus.</p>
     </section>
     <Navbar/>
-  </div>)
+  </article >)
 }

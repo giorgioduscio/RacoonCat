@@ -1,7 +1,7 @@
 nav{
     position: fixed; bottom: 0; z-index: 10;
-    width:100% ;
-    padding-top: 5px;
+    width:100vw;
+    height: 50px;
   
     display: flex;
     justify-content: space-evenly;
@@ -12,9 +12,9 @@ nav{
     background: var(--c2);
     box-shadow: 0 0 20px 0 black;
   }
-    nav>a>img{
-      padding: 1px;
-      height: 5vh;
+    nav>a img{
+      padding: 3px;
+      height: 5.5vh;
       border-radius: 5px;
     }
     .act{
